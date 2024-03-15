@@ -1,0 +1,39 @@
+# Install or update the vctrs package
+install.packages("vctrs")
+
+# Install or update the tidyr package
+install.packages("tidyr")
+
+# Load the tidyr package
+library(tidyr)
+
+# Install and load the ggplot2 and tidyr packages
+if (!require(ggplot2)) {
+  install.packages("ggplot2")
+  library(ggplot2)
+}
+
+if (!require(tidyr)) {
+  install.packages("tidyr")
+  library(tidyr)
+}
+
+# Sample data
+data <- data.frame(
+  Category = factor(c("Total", "English", "Multilingual", "Utilitarian Multilingual"),
+                    levels = c("Total", "English", "Multilingual", "Utilitarian Multilingual")),
+  Saturday = c(35, 14, 16, 5),
+  Tuesday = c(22, 13, 7, 2)
+)
+
+# Reshape the data using tidyr
+melted_data <- tidyr::gather(data, key = "Variable", value = "Value", -Category)
+
+# Create a stacked bar chart
+ggplot(melted_data, aes(x = Category, y = Value, fill = Variable)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Linguistic Diversity of Artists", 
+       x = "Linguistic Background", 
+       y = "Number of Artists", 
+       fill = "Variable") +
+  theme_minimal()
