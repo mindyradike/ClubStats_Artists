@@ -1,0 +1,30 @@
+# Sample data
+data <- c(42, 3)  
+
+# Labels for the pie chart
+labels <- c("English", "Spanish")
+
+# Colors for the pie chart
+colors <- c ("blue", "green")
+
+# Create a pie chart
+pie(data, labels = labels, col = colors, main = "New Noise Songs")
+
+# Add a legend
+legend("topright", legend = labels, fill = colors)
+
+#HERE IS ANOTHER EXAMPLE:
+# Sample data
+data <- c(27, 3)  
+
+# Labels for the pie chart
+labels <- c("English", "Spanish")
+
+# Colors for the pie chart
+colors <- c ("pink", "yellow")
+
+# Create a pie chart
+pie(data, labels = labels, col = colors, main = "Tuezgayz Songs")
+
+# Add a legend
+legend("topright", legend = labels, fill = colors)
